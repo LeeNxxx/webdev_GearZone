@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GearZone - Login</title>
+    <link rel="stylesheet" href="/~cs6636089/GearZone/frontend/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body class="login-page">
+
+    <header class="header">
+        <div class="container navbar">
+            <div class="brand">GEARZONE</div>
+            <nav class="navlinks">
+                <a href="/~cs6636089/GearZone/index.html">หน้าหลัก</a>
+                <a href="/~cs6636089/GearZone/frontend/categories.html">หมวดหมู่สินค้า</a>
+                <a href="/~cs6636089/GearZone/frontend/login.html" class="active">เข้าสู่ระบบ</a>
+                <a href="#" class="cart" aria-label="Cart">
+                    <i class="fas fa-cart-shopping"></i>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="login-wrap">
+            <div class="login-card">
+                <h3>เข้าสู่ระบบ</h3>
+                <p style="text-align:center; color:#666;">กรอกข้อมูลเพื่อเข้าสู่ระบบ</p>
+
+                <form action="/~cs6636089/GearZone/backend/login.php" method="post" autocomplete="on">
+                    <div class="form-group">
+                        <label for="email">อีเมล</label>
+                        <input id="email" name="email" type="email" placeholder="your@email.com" required
+                            inputmode="email" autocomplete="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">รหัสผ่าน</label>
+                        <input id="password" name="password" type="password" placeholder="••••••••" required
+                            minlength="6" pattern="(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}" autocomplete="current-password"
+                            title="อย่างน้อย 6 ตัวอักษร และต้องมีทั้งตัวอักษรและตัวเลข">
+                        <small style="color:#666; display:block; margin-top:4px;">
+                            อย่างน้อย 6 ตัวอักษร และต้องมีทั้งตัวอักษรและตัวเลข
+                        </small>
+                    </div>
+                    <div class="form-group tos-box">
+                        <label for="tos" class="tos-label">
+                            <input type="checkbox" id="tos" required>
+                            ฉันยอมรับ <a href="#" class="tos-link">เงื่อนไขการใช้งาน</a>
+                        </label>
+                    </div>
+
+
+
+                    <button type="submit" class="btn">เข้าสู่ระบบ</button>
+                    <p style="text-align:center;">ยังไม่มีบัญชี? <a href="register.html">สมัครสมาชิก</a></p>
+                </form>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-left">GEARZONE</div><br>
+        <div class="footer-right">&copy; 2025 GearZone. สงวนลิขสิทธิ์.</div>
+    </footer>
+
+</body>
+
+</html>

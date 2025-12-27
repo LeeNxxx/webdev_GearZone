@@ -1,0 +1,769 @@
+/* ==================== Global / Shared ==================== */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;600;700&display=swap');
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ========== Sticky Footer Layout ========== */
+html,
+body {
+  height: 100%;
+  /* ให้ body สูงเต็มจอ */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  /* วางแนวตั้ง: header → main → footer */
+}
+
+main {
+  flex: 1;
+  /* ดัน footer ลงล่างอัตโนมัติ */
+}
+
+
+body {
+  margin: 0;
+  font-family: 'Rajdhani', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: rgb(214, 211, 211);
+  color: #e6e8ea;
+  line-height: 1.35;
+  padding-bottom: 0;
+}
+
+/* Utility selectors */
+.hidden {
+  display: none;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* Accessibility focus */
+a:focus,
+button:focus,
+input:focus {
+  outline: 2px dashed rgba(255, 60, 48, 0.18);
+  outline-offset: 3px;
+}
+
+/* ==================== Header / Navbar ==================== */
+.header {
+  background: black;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  width: 100%;
+  height: 70px;
+}
+
+.brand {
+  color: red;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 20px;
+}
+
+.brand::after {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 8px;
+  background: red;
+  border-radius: 999px;
+  vertical-align: middle;
+}
+
+.navlinks {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.navlinks a {
+  color: #9aa0a6;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  line-height: 1;
+}
+
+.navlinks a:hover,
+.navlinks a:focus {
+  color: #fff;
+  outline: none;
+}
+
+/* active tab */
+.navlinks>a.active {
+  color: #fff;
+  border-bottom: 3px solid rgba(255, 60, 48, 0.3);
+  padding-bottom: 10px;
+}
+
+.cart {
+  position: relative;
+  color: #9aa0a6;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border-radius: 10px;
+}
+
+.fa-cart-shopping {
+  font-size: 20px;
+  color: white;
+}
+
+/* ==================== Hero / CTA ==================== */
+.hero {
+  padding: 46px 0 56px;
+  text-align: center;
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero .hot {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 26px;
+  border: 1px solid rgba(255, 60, 48, 0.18);
+  color: red;
+  background: linear-gradient(90deg, rgba(255, 60, 48, 0.04), transparent);
+  margin-bottom: 18px;
+}
+
+.hero h2 {
+  font-size: 40px;
+  margin: 0;
+  color: red;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  color: black;
+  max-width: 780px;
+  margin: 18px auto 28px;
+}
+
+.cta-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero .cta-row a.btn {
+  background-color: red !important;
+  color: white !important;
+  border: none;
+  text-decoration: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-weight: 600;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 12px #ff3c2e;
+}
+
+/* ==================== Section Title ==================== */
+.section-title {
+  text-align: center;
+  padding: 36px 0 14px;
+}
+
+.section-title h3 {
+  font-size: 32px;
+  margin: 0;
+  color: red;
+}
+
+.section-title h3::after {
+  content: "";
+  display: block;
+  height: 6px;
+  width: 120px;
+  margin: 12px auto 0;
+  border-radius: 6px;
+  background: red;
+}
+
+.section-title p {
+  color: black;
+  margin-top: 8px;
+}
+
+/* ==================== Product Grid / Card ==================== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  padding: 18px 0;
+}
+
+.card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(2, 2, 2, 0.6);
+  transition: transform .18s ease, box-shadow .18s ease;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  text-decoration: none;
+  color: inherit;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card .thumb {
+  height: 170px;
+  background: #0b0b0b;
+  background-size: cover;
+  background-position: center;
+}
+
+.card .meta {
+  padding: 14px;
+}
+
+.card h4 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.price {
+  color: red;
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.buy {
+  background: red;
+  padding: 8px 12px;
+  border-radius: 12px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.card:hover .buy {
+  transform: translateY(-2px);
+}
+
+
+/* ==================== Feature Boxes ==================== */
+.features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 26px 0;
+}
+
+.feature {
+  background: #141518;
+  padding: 26px;
+  border-radius: 16px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(255, 60, 48, 0.15);
+}
+
+.feature h4 {
+  margin: 8px 0;
+  font-size: 20px;
+  color: #fff;
+}
+
+.feature .small {
+  font-size: 14px;
+  color: white;
+}
+
+/* ==================== Footer ==================== */
+.footer {
+  width: 100%;
+  background: #0f1113;
+  color: #9aa0a6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 16px 0;
+  box-sizing: border-box;
+}
+
+.footer-left {
+  font-weight: 700;
+  font-size: 20px;
+  color: #ff3b2f;
+  margin-bottom: 8px;
+}
+
+.footer-right {
+  font-size: 14px;
+}
+
+/* ==================== Responsive Rules ==================== */
+@media(min-width:720px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .features {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .section-title h3 {
+    font-size: 40px;
+  }
+
+  .hero h1,
+  .hero h2 {
+    font-size: 56px;
+  }
+}
+
+@media(min-width:1000px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .navbar {
+    padding: 0 20px;
+    /* แทนของเดิมที่เป็น 20px 0 */
+    height: 70px;
+    /* คงความสูงไว้ */
+  }
+
+  .container {
+    padding: 0 24px;
+  }
+
+  .hero {
+    min-height: 520px;
+  }
+}
+
+/* ==================== Login Page ==================== */
+body.login-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body.login-page main {
+  flex: 1;
+}
+
+body.login-page .login-wrap {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 16px;
+}
+
+body.login-page .login-card {
+  width: 100%;
+  max-width: 420px;
+  background: white;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+body.login-page .login-card h3 {
+  color: red;
+  margin-bottom: 12px;
+}
+
+body.login-page .login-card p {
+  color: #666;
+  margin-bottom: 16px;
+}
+
+body.login-page .login-card .form-group {
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+body.login-page .login-card .form-group label {
+  display: block;
+  margin-bottom: 6px;
+  color: #333;
+  font-size: 14px;
+}
+
+body.login-page .login-card .form-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #333;
+}
+
+body.login-page .login-card .form-options {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 16px;
+}
+
+body.login-page .login-card .form-options a {
+  color: red;
+  text-decoration: none;
+}
+
+body.login-page .login-card .form-options a:hover {
+  text-decoration: underline;
+}
+
+body.login-page .login-card .btn {
+  width: 100%;
+  padding: 12px;
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+body.login-page .login-card .btn:hover {
+  background: darkred;
+}
+
+body.login-page .login-card .login-footer {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+body.login-page .login-card .login-footer a {
+  color: red;
+  text-decoration: none;
+}
+
+body.login-page .login-card .login-footer a:hover {
+  text-decoration: underline;
+}
+
+/* --- Fix: ให้ checkbox ไม่โดนกฎ input ทั่วไป --- */
+body.login-page .login-card .form-group input[type="checkbox"],
+.tos-label input[type="checkbox"] {
+  width: auto;
+  padding: 0;
+  border: none;
+  height: 18px;              /* ให้ขนาดพอดี */
+  accent-color: #ff3b2f;     /* สีแดงธีม */
+  cursor: pointer;
+}
+
+/* กล่อง "ยอมรับเงื่อนไข" ให้เรียงแนวนอนสวย ๆ */
+.tos-box { 
+  text-align: left; 
+  margin: 8px 0 14px; 
+}
+
+.tos-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #333;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.tos-link { color: #ff3b2f; text-decoration: none; }
+.tos-link:hover { text-decoration: underline; }
+
+
+
+
+/* ==================== Register Page ==================== */
+/* ===== Register = Login style (override) ===== */
+body.register-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body.register-page main {
+  flex: 1;
+}
+
+body.register-page .form-container {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 16px;
+}
+
+/* กล่องฟอร์ม ให้หน้าตา/ขนาด/เงาเหมือน login */
+body.register-page .form-box {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  padding: 28px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: #333;
+}
+
+/* หัวข้อ/คำอธิบายเหมือน login */
+body.register-page .form-box h2 {
+  color: red;
+  margin-bottom: 12px;
+}
+
+body.register-page .form-box p {
+  color: #666;
+  margin-bottom: 16px;
+}
+
+/* label + input เหมือน login */
+body.register-page .form-box label {
+  display: block;
+  text-align: left;
+  margin: 0 0 6px;
+  color: #333;
+  font-size: 14px;
+}
+
+body.register-page .form-box input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  color: #333;
+  margin-bottom: 14px;
+}
+
+body.register-page .form-box input:focus {
+  outline: none;
+  border-color: #ff3c2e;
+  box-shadow: 0 0 0 3px rgba(255, 60, 48, .2);
+}
+
+/* ปุ่ม/ลิงก์ */
+body.register-page .btn-form {
+  width: 100%;
+  padding: 12px;
+  background: red;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+body.register-page .btn-form:hover {
+  background: darkred;
+}
+
+body.register-page .switch {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+body.register-page .switch a {
+  color: red;
+}
+
+body.register-page .back-link {
+  display: inline-block;
+  margin-top: 6px;
+  color: #666;
+}
+
+/* ==================== Categories Page ==================== */
+body.categories-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+body.categories-page main {
+  flex: 1;
+  padding-bottom: 20px;
+}
+
+body.categories-page .category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding-bottom: 20px;
+}
+
+body.categories-page .category-grid .card .thumb {
+  height: 160px;
+  background-size: cover;
+  background-position: center;
+}
+
+body.categories-page .category-grid .card .meta {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  border-radius: 0 0 8px 8px;
+}
+
+body.categories-page .category-grid .card .meta p {
+  font-size: 16px;
+  margin: 4px 0 0;
+}
+
+body.categories-page .category-grid .card .meta h4 {
+  color: black;
+  text-decoration: none;
+}
+
+body.categories-page .category-grid .card h4,
+body.categories-page .category-grid .card p {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (min-width: 720px) {
+  body.categories-page .category-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1000px) {
+  body.categories-page .category-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* ====== Promo Grid ====== */
+#product-grid.promo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 22px;
+  margin-top: 14px;
+}
+
+.promo-card {
+  position: relative;
+  background: #fff;
+  color: #333;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.promo-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0,0,0,.12);
+}
+
+.promo-card .ribbon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #e31837;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 999px;
+  z-index: 2;
+}
+
+.promo-card .thumb {
+  aspect-ratio: 4 / 3; /* ให้ภาพสูงเท่ากันทุกใบ */
+  background: #f6f6f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.promo-card .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.promo-card .meta {
+  padding: 12px 14px 14px;
+}
+.promo-card .title {
+  margin: 0 0 6px;
+  font-size: 16px;
+  line-height: 1.35;
+  min-height: 42px; /* 2 บรรทัด กันกระโดด */
+}
+
+.promo-card .muted {
+  color: #777;
+  font-size: 13px;
+}
+
+.promo-card .price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.promo-card .price {
+  color: #d50000;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.promo-card .btn-buy {
+  display: inline-block;
+  background: #e31837;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+}
+.promo-card .btn-buy:hover { opacity: .9; }
